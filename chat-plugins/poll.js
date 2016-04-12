@@ -213,6 +213,39 @@ exports.commands = {
 
 			room.poll.vote(user, parsed);
 		},
+		
+			ep: 'endpoll',
+ 	endpoll: function(target, room, user) {
+ 		this.parse('/poll end');
+ 	},
+ 	ffapoll: function(target, room, user) {
+ 		var tiers = ['Ubers', 'OU with 1 Uber', 'OU', 'UU/RU', 'NU/PU', 'LC'];
+ 		this.parse('/poll new FFA Format?, ' + tiers);
+ 
+ 	},
+ 	tourpoll: function(target, room, user) {
+ 		var tiers = ['Challenge Cup 1v1', 'OMotM', 'OU', 'Random Battle', 'Random Monotype Battle', 'UU', 'NU', 'RU', 'PU', 'Ubers'];
+ 		this.parse('/poll new Next Tournament?, ' + tiers);
+      	},
+         leaguepoll: function(target, room, user) {
+ 		var tiers = ['Monotype', 'Challenge Cup 1v1', '8s'];
+ 		this.parse('/poll new League tournament?, ' + tiers);
+ 	},
+ 
+ 	easytour: 'etour',
+ 	elimtour: 'etour',
+ 	etour: function (target, room, user) {
+ 		if (!this.runBroadcast()) return;
+ 		this.parse('/tour new ' + target + ', elimination');
+ 	},
+ 
+ 	roundrobintour: 'rtour',
+ 	cancertour: 'rtour',
+ 	rtour: function (target, room, user) {
+ 		if (!this.runBroadcast()) return;
+ 		this.parse('/tour new ' + target + ', roundrobin');
+ 	},
+ 	
 		votehelp: ["/poll vote [number] - Votes for option [number]."],
 
 		timer: function (target, room, user) {
