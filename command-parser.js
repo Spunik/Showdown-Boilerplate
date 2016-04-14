@@ -227,7 +227,7 @@ class CommandContext {
 		}
 		return CommandParser.parse(message, room || this.room, this.user, this.connection, this.levelsDeep + 1);
 	}
-	Context.prototype.run = function (targetCmd, inNamespace) {
+	Context.run = function (targetCmd, inNamespace) {
 		let commandHandler;
 		if (typeof targetCmd === 'function') {
 			commandHandler = targetCmd;
