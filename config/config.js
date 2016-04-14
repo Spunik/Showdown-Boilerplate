@@ -304,7 +304,7 @@ exports.grouplist = [
 		globalonly: true,
 		tournamentsmanagement: true,
 		gamemanagement: true,
-	{
+	},
 		symbol: '#',
 		id: "owner",
 		name: "Room Owner",
