@@ -136,7 +136,7 @@ exports.commands = {
 	tickets: 'tickets',
 	coincase: 'tickets',
 	tickets: function (target, room, user) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		if (!target) target = user.name;
 
 		const amount = Db('ticket').get(toId(target), 0);
@@ -228,7 +228,7 @@ exports.commands = {
 
 	rewardcenter: 'rewardcenter',
 	rewardcenter: function (target, room, user) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		return this.sendReply("|raw|" + rewardcenterDisplay);
 	},
 	rewardcenterhelp: ["/rewardcenter - Display items you can win with tickets."],
@@ -298,7 +298,7 @@ exports.commands = {
 	winnerladder: 'luckiestuser',
 	luckiestusers: 'luckiestuser',
 	luckiestuser: function (target, room, user) {
-		if (!this.canBroadcast()) return;
+		if (!this.runBroadcast()) return;
 		let display = '<center><u><b>Richest Users</b></u></center><br><table border="1" cellspacing="0" cellpadding="5" width="100%"><tbody><tr><th>Rank</th><th>Username</th><th>Tickets</th></tr>';
 		let keys = Object.keys(Db('ticket').object()).map(function (name) {
 			return {name: name, ticket: Db('ticket').get(name)};
@@ -317,7 +317,7 @@ exports.commands = {
 	numbergame: 'startnumber',
 	numberstart: 'startnumber',
 	startnumber: function (target, room, user) {
-		if (!this.can('broadcast', null, room)) return false;
+		if (!this.run('broadcast', null, room)) return false;
 		if (!target) return this.parse('/help startnumber');
 		if (!this.canTalk()) return this.errorReply("You can not start number games while unable to speak.");
 
