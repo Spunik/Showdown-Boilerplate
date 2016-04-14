@@ -118,7 +118,7 @@ var cmds = {
     '': 'rules',
     commands: 'rules',
     rules: function (target, room, user) {
-        if (!this.canBroadcast()) return;
+        if (!this.runBroadcast()) return;
         return this.sendReplyBox('<b><center>Roulette rules and commands</center></font></b><br />' +
             '-/startroul or /roul start - Starts a roulette game in the room. Must be ranked + or higher to use.<br />' +
             '-/bet or /roul bet <i>Color</i> - Bets on a roulette color. Using this multiple times increases the number of times you\'ve bet on that color by 1. You require 1 buck per bet. Clicking on a different color changes the color you\'re betting on to the new color. <br />' +
@@ -131,7 +131,7 @@ var cmds = {
  
     'new': 'start',
     start: function (target, room, user) {
-        if (!this.can('broadcast', null, room)) return false;
+        if (!this.run('broadcast', null, room)) return false;
         if (roulettes[room.id]) return this.sendReply('There is already a game of roulette going on.');
         roulettes[room.id] = new Roulette(room);
         this.add('|html|<div class = "infobox"><font size = 3, color = "green"><center><b>' + user.name + ' has started a roulette!</font><br />' +
@@ -158,7 +158,7 @@ var cmds = {
  
     end: 'stop',
     stop: function (target, room, user) {
-        if (!this.can('broadcast', null, room)) return false;
+        if (!this.run('broadcast', null, room)) return false;
         if (!roulettes[room.id]) return this.sendReply('There is no roulette going on in this room right now.');
  
         roulettes[room.id].end(user);
