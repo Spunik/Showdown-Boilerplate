@@ -1936,7 +1936,7 @@ exports.commands = {
 					Tools.dexsearchProcess.kill();
 					Tools.dexsearchProcess = null;
 				}
-				delete require.cache[require.resolve('./chat-plugins/dexsearch.js')];
+				delete require.cache[require.resolve('./chat-plugins/datasearch.js')];
 				global.CommandParser = require('./command-parser.js');
 
 				let runningTournaments = Tournaments.tournaments;
