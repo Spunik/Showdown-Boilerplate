@@ -305,6 +305,7 @@ exports.grouplist = [
 		tournamentsmanagement: true,
 		gamemanagement: true,
 	},
+	}
 		symbol: '#',
 		id: "owner",
 		name: "Room Owner",
