@@ -54,7 +54,7 @@ Object.assign(commands, require('./chat-plugins/info.js').commands);
 
 for (let file of fs.readdirSync(path.resolve(__dirname, 'chat-plugins'))) {
 	if (file.substr(-3) !== '.js' || file === 'info.js') continue;
-	Object.assign(commands, require('./chat-plugins/' + file).commands);
+	Object.merge(commands, require('./chat-plugins/' + file).commands);
 }
 
 /*********************************************************
