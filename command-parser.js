@@ -227,8 +227,7 @@ class CommandContext {
 		}
 		return CommandParser.parse(message, room || this.room, this.user, this.connection, this.levelsDeep + 1);
 	}
-	run(targetCmd, inNamespace) {
-		if (targetCmd === 'constructor') return this.sendReply("Access denied.");
+	Context.prototype.run = function (targetCmd, inNamespace) {
 		let commandHandler;
 		if (typeof targetCmd === 'function') {
 			commandHandler = targetCmd;
@@ -251,7 +250,7 @@ class CommandContext {
 				room: this.room.id,
 				message: this.message,
 			}) === 'lockdown') {
-				let ministack = Tools.escapeHTML(err.stack).split("\n").slice(0, 2).join("<br />");
+				let ministack = ("" + err.stack).escapeHTML().split("\n").slice(0, 2).join("<br />");
 				if (Rooms.lobby) Rooms.lobby.send('|html|<div class="broadcast-red"><b>POKEMON SHOWDOWN HAS CRASHED:</b> ' + ministack + '</div>');
 			} else {
 				this.sendReply('|html|<div class="broadcast-red"><b>Pokemon Showdown crashed!</b><br />Don\'t worry, we\'re working on fixing it.</div>');
@@ -260,7 +259,7 @@ class CommandContext {
 		if (result === undefined) result = false;
 
 		return result;
-	}
+	};
 	canTalk(message, room, targetUser) {
 		if (room === undefined) room = this.room;
 		let user = this.user;
