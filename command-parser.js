@@ -45,7 +45,7 @@ const parseEmoticons = require('./chat-plugins/emoticons').parseEmoticons;
  *********************************************************/
 
 let baseCommands = exports.baseCommands = require('./commands.js').commands;
-let commands = exports.commands = Object.merge({}, baseCommands);
+let commands = exports.commands = Object.clone({}, baseCommands);
 
 // Install plug-in commands
 
