@@ -7,7 +7,7 @@ function writeIconCSS() {
 }
  
 exports.commands = {
-        icon: function (target, room, user) {
+        icon.function (target, room, user) {
         if (!this.can('declare')) return this.errorReply("Access denied.");
  
                 var args = target.split(',');
