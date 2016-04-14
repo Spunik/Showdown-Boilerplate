@@ -131,7 +131,7 @@ var cmds = {
  
     'new': 'start',
     start: function (target, room, user) {
-        if (!this.run('broadcast', null, room)) return false;
+        if (!this.can('broadcast', null, room)) return false;
         if (roulettes[room.id]) return this.sendReply('There is already a game of roulette going on.');
         roulettes[room.id] = new Roulette(room);
         this.add('|html|<div class = "infobox"><font size = 3, color = "green"><center><b>' + user.name + ' has started a roulette!</font><br />' +
