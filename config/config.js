@@ -194,8 +194,8 @@ exports.avatarurl = '';
 // tourroom - specify a room to receive tournament announcements (defaults to
 // the room 'tournaments').
 // tourannouncements - announcements are only allowed in these rooms
-exports.tourroom = 'tournaments';
-exports.tourannouncements = 'lobby';
+exports.tourroom = 'tournaments', 'lobby';
+exports.tourannouncements = 'lobby', 'tournaments';
 
 // appealurl - specify a URL containing information on how users can appeal
 // disciplinary actions on your section. You can also leave this blank, in
