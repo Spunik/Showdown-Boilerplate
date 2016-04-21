@@ -1745,6 +1745,7 @@ exports.commands = {
 	},
 	forcerenamehelp: ["/forcerename OR /fr [username], [reason] - Forcibly change a user's name and shows them the [reason]. Requires: % @ & ~"],
 
+        ht: 'hidetext',
 	hidetext: function (target, room, user) {
 		if (!target) return this.parse('/help hidetext');
 
@@ -2753,6 +2754,7 @@ exports.commands = {
 			let userdetails = {
 				userid: targetUser.userid,
 				avatar: targetUser.avatar,
+				group: targetUser.group,
 				rooms: roomList,
 			};
 			connection.send('|queryresponse|userdetails|' + JSON.stringify(userdetails));
