@@ -18,12 +18,12 @@ if (!room) {
 		Rooms.global.writeChatRoomData();
 	}
 }
-if (Object.size(room.addedUsers) > 0) {
-	setImmediate(function () {
-		room.add("||Loaded user list: " + Object.keys(room.addedUsers).sort().join(", "));
-		room.update();
-	});
-}
+// if (Object.size(room.addedUsers) > 0) {
+//	setImmediate(function () {
+//		room.add("||Loaded user list: " + Object.keys(room.addedUsers).sort().join(", "));
+//		room.update();
+//	});
+// }
 exports.room = room;
 
 function getAllAlts(user) {
