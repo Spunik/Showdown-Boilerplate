@@ -13125,7 +13125,6 @@ exports.BattleMovedex = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, defrost: 1},
 		thawsTarget: true,
-		isUnreleased: true,
 		secondary: {
 			chance: 30,
 			status: 'brn',
