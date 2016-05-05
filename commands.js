@@ -348,7 +348,7 @@ exports.commands = {
 	makechatroomhelp: ["/makechatroom [roomname] - Creates a new room named [roomname]. Requires: & ~"],
 
 	makegroupchat: function (target, room, user, connection, cmd) {
-		if (!user.administrator) {
+		if (!user.autoconfirmed) {
 			return this.errorReply("You must be autoconfirmed to make a groupchat.");
 		}
 		if (!user.confirmed) {
